@@ -46,3 +46,13 @@ var SimpleXhrFactory = (function(){
 	}
 
 })();
+
+/*
+ * Example:
+ *
+ * var xhr = SimpleXhrFactory.getInstance();
+ * if (xhr) {
+ * 	// do something magic
+ * }
+ *
+ */
