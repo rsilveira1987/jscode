@@ -1,6 +1,4 @@
-//
-// handle different browsers XHR object
-//
+ /* SimpleXhrFactory is a Singleton JavaScript object who handles cross-browsing XMLHttRequest object instantiation. */
 
 var SimpleXhrFactory = (function(){
 
