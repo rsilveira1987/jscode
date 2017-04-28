@@ -1,8 +1,9 @@
  /* SimpleXhrFactory is a Singleton JavaScript object who handles cross-browsing XMLHttRequest object instantiation. */
 
 var SimpleXhrFactory = (function(){
-
-	// private object instance
+	//
+	// private properties and methods
+	//
 	var instance;
 
 	// private mini-factory
@@ -13,7 +14,7 @@ var SimpleXhrFactory = (function(){
  		function() {return new AcvtiveXObject("Microsoft.XMLHTTP")}
 	];
 
-	// private method
+	// private create function
 	function createXMLHttpRequest() {
 
 		var xmlhttp = false;
@@ -26,31 +27,19 @@ var SimpleXhrFactory = (function(){
 			}
 			break;
 		}
+		// if xmlhttp is a valid XMLHttp object, store it
+		instance = (xmlhttp)? XMLHttpFactories[i] : instance;
 		
+		// return the object
 		return xmlhttp;
 	}
 	
+	//
 	// public method
+	//
 	return {
-
-		getInstance: function(){
-			// control instance 
-			if (!instance) {
-				instance = createXMLHttpRequest();
-			}
-
-			return instance;
+		getInstance: function() {
+			(instance) ? return instance() : return createXMLHttpRequest();
 		}
 	}
-
 })();
-
-/*
- * Example:
- *
- * var xhr = SimpleXhrFactory.getInstance();
- * if (xhr) {
- * 	// do something magic
- * }
- *
- */
