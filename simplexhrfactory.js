@@ -27,7 +27,7 @@ var SimpleXhrFactory = (function(){
 			}
 			break;
 		}
-		// if xmlhttp is a valid XMLHttp object, store it
+		// if xmlhttp is a valid XMLHttp object, store its function
 		instance = (xmlhttp) ? XMLHttpFactories[i] : instance;
 		
 		// return the object
